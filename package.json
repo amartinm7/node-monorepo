@@ -1,0 +1,19 @@
+{
+  "name": "node-monorepo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/amartinm7/node-monorepo.git",
+  "author": "antonio martin <antonio.martin@adevinta.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "start": "concurrently \"yarn workspace server start\" \"yarn workspace client start\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.1"
+  }
+}
