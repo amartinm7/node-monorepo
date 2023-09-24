@@ -1,12 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 
 function App() {
+  const [message,setMessage] = useState("Hello world")
   useEffect ( () => {
     fetch('/test')
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((res) => {
+        console.log(res)
+        setMessage(res.data)
+      })
   }, [])
 
   return (
@@ -22,7 +26,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React: {message}
         </a>
       </header>
     </div>
